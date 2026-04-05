@@ -1,0 +1,24 @@
+.card {
+  border-radius: 1rem;
+}
+
+img {
+  object-fit: cover;
+}
+
+.bg-secondary {
+  background-color: rgba(255,255,255,0.05) !important;
+}
+
+.category-card {
+  background-color: #495057;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.category-card:hover {
+  transform: scale(1.05);
+}
+

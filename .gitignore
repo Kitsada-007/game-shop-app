@@ -1,0 +1,56 @@
+# Root gitignore for game-shop-app
+
+# Node.js dependencies
+/node_modules
+**/node_modules
+
+# Build outputs
+/backend/dist
+/frontend/dist
+/out-tsc
+/build
+/dist
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs
+*.log
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE and editor files
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Angular / frontend cache
+/frontend/.angular/cache
+
+# Miscellaneous
+/.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+*~
+*.swp

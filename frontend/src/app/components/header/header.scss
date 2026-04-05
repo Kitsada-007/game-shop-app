@@ -1,0 +1,20 @@
+.toolbar{
+    background-color: rgba(23, 29, 37, 1);
+    height: fit-content;
+    
+}
+.hover-bg:hover {
+  background-color: rgba(38, 130, 255, 0.2);
+  cursor: pointer;
+}
+
+input.form-control {
+    background-color: rgba(59, 70, 84, 1);
+    border: none;
+    color: white;
+}
+
+input.form-control::placeholder {
+  color: white;
+  opacity: 1; /* ป้องกันบาง browser ทำให้จาง */
+}

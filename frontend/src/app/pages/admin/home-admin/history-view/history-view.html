@@ -1,0 +1,59 @@
+<app-header-admin></app-header-admin>
+
+<div class="history-container" *ngIf="!loading; else loadingTpl">
+    <div class="tabs justify-content-center">
+        <a (click)="switchTab('purchase')" [class.active]="selectedTab === 'purchase'">ประวัติการซื้อเกม</a>
+        <a (click)="switchTab('topup')" [class.active]="selectedTab === 'topup'">ประวัติการเติมเงิน</a>
+    </div>
+
+    <div class="history-table" *ngIf="selectedTab === 'purchase'">
+        <h4>จำนวนทั้งหมด {{ gameHistory.length }} รายการ</h4>
+        <table>
+            <ng-container *ngFor="let item of gameHistory">
+                <tr>
+                    <td>{{ item.created_at | date:'dd/MM/yyyy HH:mm' }}</td>
+                    <td>{{ item.description }}</td>
+                    <td style="text-align:right;">{{ item.amount }} บาท</td>
+
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr />
+                    </td>
+                </tr>
+            </ng-container>
+            <tr class="total">
+                <td colspan="2" style="text-align:right;">
+                    รวมจำนวนเงิน {{ totalGameAmount }} บาท
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="history-table" *ngIf="selectedTab === 'topup'">
+        <h4>จำนวนทั้งหมด {{ topupHistory.length }} รายการ</h4>
+        <table>
+            <ng-container *ngFor="let item of topupHistory">
+                <tr>
+                    <td>{{ item.created_at | date:'dd/MM/yyyy HH:mm' }}</td>
+                    <td>{{ item.description }}</td>
+                    <td style="text-align:right;">+{{ item.amount }} บาท</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr />
+                    </td>
+                </tr>
+            </ng-container>
+            <tr class="total">
+                <td colspan="2" style="text-align:right;">
+                    รวมจำนวนเงินที่เติม {{ totalTopupAmount }} บาท
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<ng-template #loadingTpl>
+    <div class="loading">กำลังโหลดข้อมูล...</div>
+</ng-template>

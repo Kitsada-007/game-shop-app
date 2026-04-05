@@ -1,0 +1,48 @@
+<mat-toolbar
+    class="toolbar d-flex justify-content-between align-items-center px-3">
+    <!-- ซ้าย: โลโก้ -->
+    <div>
+        <img src="assets/Images/logo.png" alt="logo" width="250px">
+    </div>
+
+    <!-- ขวา: ข้อความ + ปุ่ม -->
+    <div class="d-flex flex-column align-items-end text-end me-4">
+        <div class="text-white mb-2">เพิ่งรู้จักเว็บไซต์เรา?</div>
+        <button routerLink="/register"
+            class="btn btn-primary">สมัครสมาชิก</button>
+    </div>
+
+</mat-toolbar>
+<!-- ส่วนเข้าสู่ระบบ -->
+<h2 class="text-center text-white"
+    style="margin-right: 30rem; margin-top: 5rem;">
+    เข้าสู่ระบบ
+</h2>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card-login card p-4 shadow">
+                <form (ngSubmit)="onLogin()">
+                    <div class="mb-3">
+                        <label style="color: rgba(25, 153, 255, 1);" for="email"
+                            class="form-label">เข้าสู่ระบบด้วยอีเมล</label>
+                        <input type="email" class="form-control"
+                            [(ngModel)]="email" name="email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password"
+                            class="form-label">รหัสผ่าน</label>
+                        <input type="password" class="form-control"
+                            [(ngModel)]="password"
+                            name="password">
+                    </div>
+
+                    <button type="submit"
+                        class="btn btn-primary w-25 mx-auto d-block mt-5">เข้าสู่ระบบ</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

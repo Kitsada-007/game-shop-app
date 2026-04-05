@@ -1,0 +1,24 @@
+<div class="container my-4 text-white">
+  <h2 class="text-center mb-4">หมวดหมู่ {{ genre }}</h2>
+
+  <div *ngFor="let game of games" class="category-game-card mb-3" (click)="goToDetail(game.id)">
+    <div class="d-flex align-items-center">
+      <!-- รูปเกม -->
+      <img 
+        [src]="game.images.length > 0 ? game.images[0] : 'assets/Images/no-image.png'"
+        alt="Game Image"
+        class="game-image rounded">
+
+      <!-- ข้อมูลเกม -->
+      <div class="game-info ms-3 flex-grow-1">
+        <h4 class="mb-1">{{ game.name }}</h4>
+        <p class="mb-0 text-white">{{ game.genre }}</p>
+      </div>
+
+      <!-- ราคา -->
+      <div class="game-price fw-bold">
+        {{ game.price }} บาท
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="container my-4 text-white d-flex justify-content-center">
+  <div class="game-detail-wrapper w-100" style="max-width: 900px;">
+
+    <!-- ชื่อเกม -->
+    <h2 class="mb-3">{{ game?.name }}</h2>
+
+    <div class="row">
+      <!-- ภาพหลักและ gallery -->
+      <div class="col-md-7">
+        <div class="card mb-3 bg-dark text-white">
+          <img
+            [src]="selectedImage || 'assets/Images/no-image.png'"
+            class="card-img-top"
+            style="height: 300px; object-fit: cover;"
+            alt="Game Image">
+        </div>
+
+        <div class="d-flex gap-2 overflow-auto mb-3">
+          <img
+            *ngFor="let img of game?.images"
+            [src]="img"
+            class="rounded"
+            style="height: 80px; width: 200px; cursor: pointer;"
+            (click)="selectImage(img)">
+        </div>
+      </div>
+
+      <!-- รายละเอียดเกม -->
+      <div class="col-md-5">
+        <div class="card bg-dark text-white p-3">
+          <img
+            [src]="(game?.images?.length ?? 0) > 0 ? game?.images![0] : 'assets/Images/no-image.png'"
+            alt="Game Cover"
+            class="img-fluid mb-3 rounded"
+            style="height: 180px; object-fit: cover; width: 100%;">
+          <p>{{ game?.description }}</p>
+          <p><strong>วันที่วางจำหน่าย:</strong>
+            {{ game?.release_date ? formatThaiDate(game?.release_date) : '-' }}
+          </p>
+
+          <p><strong>จัดอันดับยอดขาย:</strong>
+            {{ gameRanking ? '#' + gameRanking : 'ไม่ติดอันดับ' }}
+          </p>
+
+          <p><strong>ประเภทเกม:</strong>
+            <span class="badge bg-secondary me-1"> {{ game?.genre }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ซื้อเกม -->
+    <div
+      class="mt-3 p-3 d-flex justify-content-between align-items-center rounded"
+      style="background-color: rgba(57, 72, 86, 1);">
+      <h5>สั่งซื้อ {{ game?.name }}</h5>
+      <div class="d-flex gap-2">
+        <div class="p-2 bg-black">{{ game?.price }} บาท</div>
+        <button (click)="addToCart()" class="btn"
+          style="background-color: rgba(89, 140, 27, 1);">หยิบใส่รถเข็น</button>
+      </div>
+    </div>

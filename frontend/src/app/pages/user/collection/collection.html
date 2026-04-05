@@ -1,0 +1,16 @@
+<div class="text-center mt-5 mb-5 text-white">
+    <h1>จำนวนเกมทั้งหมด {{ games.length }} เกม</h1>
+</div>
+
+<div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+    <div *ngFor="let game of games" class="card p-2 text-white bg-dark"
+        style="width: 250px; height: 300px;">
+        <img
+            [src]="game.image || 'assets/Images/no-image.png'"
+            alt="game"
+            class="card-img-top"
+            style="width: 100%; height: 100%; object-fit: fill;"
+            (click)="goToDetail(game.game_id)"
+            >
+    </div>
+</div>

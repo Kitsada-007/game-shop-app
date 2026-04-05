@@ -1,0 +1,26 @@
+/* gallery scrollbar */
+.game-detail-wrapper .d-flex.overflow-auto {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #58606b #1e1e1e; /* thumb color / track color */
+}
+
+/* Chrome, Edge, Safari */
+.game-detail-wrapper .d-flex.overflow-auto::-webkit-scrollbar {
+  height: 6px; /* ความสูง scrollbar สำหรับ horizontal */
+}
+
+.game-detail-wrapper .d-flex.overflow-auto::-webkit-scrollbar-track {
+  background: #1e1e1e; /* track สีเข้มเหมือน background */
+  border-radius: 3px;
+}
+
+.game-detail-wrapper .d-flex.overflow-auto::-webkit-scrollbar-thumb {
+  background-color: #58606b; /* สีของ thumb */
+  border-radius: 3px;
+  border: 1px solid #1e1e1e; /* กรอบเล็กน้อยให้ thumb เด่นขึ้น */
+}
+
+.game-detail-wrapper .d-flex.overflow-auto::-webkit-scrollbar-thumb:hover {
+  background-color: #78828c; /* hover thumb สีสว่างขึ้น */
+}
+

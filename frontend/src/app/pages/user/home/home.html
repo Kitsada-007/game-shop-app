@@ -1,0 +1,125 @@
+
+
+<div class="imageTitle">
+    <img src="assets/Images/titlepage.png" class="img-fluid w-100"
+        alt="title page">
+</div>
+
+<!-- Section แนะนำเกมหลายรายการ -->
+<div class="container my-4 text-white d-flex justify-content-center">
+    <div class="game-carousel-wrapper w-100" style="max-width: 900px;">
+        <h4 class="mb-3">โดดเด่นและแนะนำ</h4>
+
+        <div id="gameCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div
+                    class="carousel-item"
+                    *ngFor="let game of games; let i = index"
+                    [class.active]="i === 0">
+
+                    <div
+                        class="img-tittle d-flex flex-wrap align-items-start bg-dark p-3 rounded">
+                        <div class="col-md-6">
+
+                            <!-- ใช้รูปเดียวกับ Top 5 -->
+                            <img
+                                [src]="getGameImage(game)"
+                                class="img-fluid rounded"
+                                style="width:100%; height:250px; object-fit:cover;"
+                                alt="Game Image"
+                                (click)="goToDetail(game.id)">
+
+                        </div>
+                        <div class="col-md-6 ps-md-4 mt-3 mt-md-0">
+                            <h3>{{ game.name }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ปุ่มเลื่อนซ้าย/ขวา -->
+            <button class="carousel-control-prev custom-btn" type="button"
+                data-bs-target="#gameCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next custom-btn" type="button"
+                data-bs-target="#gameCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container my-4 text-white d-flex justify-content-center">
+    <div class="game-carousel-wrapper w-100" style="max-width: 900px;">
+        <h5 class="mb-3">เปิดหาจากหมวดหมู่</h5>
+
+        <div id="categoryCarousel" class="carousel slide"
+            data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div
+                    class="carousel-item"
+                    *ngFor="let genreChunk of genreChunks; let i = index"
+                    [class.active]="i === 0">
+
+                    <div class="d-flex gap-4">
+                        <div class="category-card"
+                            *ngFor="let genre of genreChunk"
+                            (click)="goToCategory(genre)">
+                            {{ genre }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ปุ่มเลื่อนแบบอันแรก -->
+            <button class="carousel-control-prev custom-btn" type="button"
+                data-bs-target="#categoryCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next custom-btn" type="button"
+                data-bs-target="#categoryCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+        </div>
+    </div>
+</div>
+
+<!-- 5 อันดับเกมขายดี -->
+
+<div class="container my-4 text-white d-flex justify-content-center">
+    <div class="game-carousel-wrapper w-100" style="max-width: 900px;">
+        <h5 class="mb-3">5 อันดับเกมขายดี</h5>
+
+        <div class="card" *ngFor="let game of topGames"
+            style="background-color: rgba(34, 57, 75, 1); border-radius: 8px; overflow: hidden; max-width: 900px; height: 180px; margin: 10px auto;">
+            <div class="row g-0 h-100">
+                <div class="col-md-4 h-100">
+                    <img
+                        [src]="getGameImage(game)"
+                        class="img-fluid h-100"
+                        style="width: 300px ;object-fit: cover;"
+                        alt="Game Image"
+                        (click)="goToDetail(game.id)">
+
+                </div>
+                <div class="col-md-8 h-100">
+                    <div
+                        class="card-body d-flex justify-content-between align-items-center h-100">
+                        <div
+                            class="d-flex flex-column justify-content-between h-100">
+                            <h3 class="card-title text-white mb-1">{{ game.name
+                                }}</h3>
+                            <p style="font-weight: bold;"
+                                class="card-text text-white mb-0">{{
+                                game.genre
+                                }}</p>
+                        </div>
+                        <div class="text-white fw-bold fs-5">
+                            {{ game.price }} บาท
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

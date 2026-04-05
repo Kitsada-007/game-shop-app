@@ -1,0 +1,146 @@
+.custom-placeholder::placeholder {
+    color: white;
+    opacity: 1; /* ค่า opacity 1 = ไม่โปร่งใส */
+}
+
+.img-thumbnail {
+    border: none; /* เอาเส้นขอบออก */
+    padding: 0; /* เอาระยะห่างภายในออก */
+    background-color: transparent; /* พื้นหลังโปร่งใส */
+    
+}
+
+
+#gameCarousel .custom-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(22, 35, 49, 1);
+    border: none;
+    border-radius: 1px;
+    width: 50px;
+    height: 90px;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+  }
+
+  #gameCarousel .custom-btn:hover {
+    opacity: 1;
+  }
+
+  #gameCarousel .carousel-control-prev {
+    left: -60px; /* ขยับไปอยู่ข้างนอกการ์ดทางซ้าย */
+  }
+
+  #gameCarousel .carousel-control-next {
+    right: -60px; /* ขยับไปอยู่ข้างนอกการ์ดทางขวา */
+  }
+
+  /* ลบไอคอน Bootstrap เดิม */
+#gameCarousel .carousel-control-prev-icon,
+#gameCarousel .carousel-control-next-icon {
+  background-image: none;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  
+}
+
+/* ลูกศรใหม่สีขาว หนา */
+#gameCarousel .carousel-control-prev-icon::before,
+#gameCarousel .carousel-control-next-icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-top: 5px solid white;
+  border-right: 5px solid white;
+  border-radius: 3px;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* หมุนลูกศรซ้าย */
+#gameCarousel .carousel-control-prev-icon::before {
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+
+// --------------------------------------------------------------------------------------------------------------------
+
+
+//ของหมวดหมู่
+#categoryCarousel .custom-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(22, 35, 49, 1);
+    border: none;
+    border-radius: 1px;
+    width: 50px;
+    height: 90px;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+#categoryCarousel .custom-btn:hover {
+    opacity: 1;
+}
+
+#categoryCarousel .carousel-control-prev {
+    left: -60px;
+}
+
+#categoryCarousel .carousel-control-next {
+    right: -60px;
+}
+
+/* ลบไอคอน Bootstrap เดิม */
+#categoryCarousel .carousel-control-prev-icon,
+#categoryCarousel .carousel-control-next-icon {
+  background-image: none;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+/* ลูกศรใหม่สีขาว หนา */
+#categoryCarousel .carousel-control-prev-icon::before,
+#categoryCarousel .carousel-control-next-icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-top: 5px solid white;
+  border-right: 5px solid white;
+  border-radius: 3px;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* หมุนลูกศรซ้าย */
+#categoryCarousel .carousel-control-prev-icon::before {
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+
+.category-card {
+  flex: 0 0 auto;       /* ไม่ให้ย่อ, เลื่อนได้ */
+  background-color: rgba(34, 57, 75, 1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+
+  width: 205px;          /* ความกว้าง fix */
+  height: 205px;         /* ความสูง fix = width */
+  border-radius: 10px;
+  text-align: center;
+}
+
+

@@ -1,0 +1,65 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+      <div class="card shadow-lg bg-dark text-white p-4">
+
+        <!-- โปรไฟล์: รูป + ชื่อ + อีเมล -->
+        <div class="d-flex flex-column flex-md-row align-items-center mb-4">
+          <div class="position-relative me-md-4 mb-3 mb-md-0 text-center">
+            <img
+              [src]="user?.profile_image || 'assets/Images/user.png'"
+              alt="profile"
+              width="150" height="150"
+              class="rounded-circle border border-light"
+              style="cursor: pointer;"
+              (click)="fileInput.click()">
+
+            <input type="file" #fileInput style="display:none" (change)="onFileSelected($event)">
+
+            <!-- loader overlay -->
+            <div *ngIf="loadingProfile"
+                 class="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center rounded-circle"
+                 style="background: rgba(0,0,0,0.5);">
+              <div class="spinner-border text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ชื่อผู้ใช้ + อีเมล -->
+          <div class="text-center text-md-start flex-grow-1">
+            <h3 class="mb-1">{{ user?.username }}</h3>
+            <p class="mb-0 text-white">{{ user?.email }}</p>
+          </div>
+        </div>
+
+        <!-- วอเล็ต -->
+        <div class="d-flex justify-content-between align-items-center mb-4 p-3 bg-secondary rounded">
+          <div>
+            <span class="fw-bold">ยอดเงินในวอเล็ต:</span>
+            <span class="fs-5"> {{ user?.wallet_balance }} บาท</span>
+          </div>
+          <button routerLink="/wallet" class="btn btn-outline-light btn-sm">เติมเงิน</button>
+        </div>
+
+        <!-- ฟอร์มแก้ไขข้อมูล -->
+        <form (ngSubmit)="EditProfile()">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="username" class="form-label">ชื่อผู้ใช้</label>
+              <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username">
+            </div>
+            <div class="col-md-6">
+              <label for="useremail" class="form-label">อีเมล</label>
+              <input type="email" class="form-control" id="useremail" [(ngModel)]="email" name="email">
+            </div>
+          </div>
+          <div class="mt-4 text-end">
+            <button type="submit" class="btn btn-primary">อัปเดทข้อมูล</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

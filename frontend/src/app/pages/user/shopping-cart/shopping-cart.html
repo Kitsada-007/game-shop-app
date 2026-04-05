@@ -1,0 +1,62 @@
+<div class="container mt-5 text-white">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold">รถเข็นของคุณ</h2>
+  </div>
+
+  <div class="row justify-content-center">
+    <!-- รายการสินค้า -->
+    <div class="col-lg-7">
+      <p><strong>จำนวน {{ cartItems.length }} รายการ</strong></p>
+
+      <div
+        class="cart-item d-flex align-items-center mb-3 p-3 rounded-3"
+        *ngFor="let item of cartItems">
+        <img [src]="item.images?.[0] || 'assets/Images/no-image.png'" alt="game"
+          class="rounded me-3" />
+        <div class="flex-grow-1">
+          <h6 class="mb-1 fw-bold">{{ item.name }}</h6>
+          <p class="mb-0">{{ item.price }} บาท</p>
+        </div>
+        <button type="button" class="btn btn-link text-danger small p-0"
+          (click)="removeItem(item.id)">
+          ลบ
+        </button>
+
+      </div>
+
+      <div class="text-end">
+        <a style="cursor: pointer;" class="text-secondary small"
+          (click)="clearCart()">ลบรายการทั้งหมด</a>
+      </div>
+    </div>
+
+    <!-- สรุปยอด -->
+    <div class="col-lg-4 ms-lg-4 mt-4 mt-lg-0">
+      <div class="summary-card p-4 rounded-3">
+        <p class="d-flex justify-content-between">
+          <span>ราคารวมโดยประมาณ</span>
+          <strong>{{ totalPrice }} บาท</strong>
+        </p>
+
+        <div class="mb-3">
+          <label for="coupon" class="form-label small">รหัสคูปอง</label>
+          <input
+            type="text"
+            id="coupon"
+            class="form-control bg-dark text-white border-0"
+            placeholder="กรอกรหัสคูปอง"
+            [(ngModel)]="couponCode" />
+        </div>
+
+        <p class="d-flex justify-content-between">
+          <span>ราคารวมหลังใช้คูปอง</span>
+          <strong>{{discountedPrice}} บาท</strong>
+        </p>
+
+        <button class="btn btn-primary w-100 mt-2" (click)="checkout()">
+          ชำระเงิน
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

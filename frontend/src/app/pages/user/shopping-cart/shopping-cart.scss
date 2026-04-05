@@ -1,0 +1,19 @@
+.cart-item {
+  background-color: #2a3442;
+  transition: 0.2s;
+  img {
+    width: 140px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  &:hover {
+    background-color: #343f4e;
+  }
+}
+
+.summary-card {
+  background-color: #1f2a38;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}

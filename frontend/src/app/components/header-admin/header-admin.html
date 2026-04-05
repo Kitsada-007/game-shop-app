@@ -1,0 +1,39 @@
+<mat-toolbar class="toolbar d-flex justify-content-between align-items-center px-3">
+    <div class="d-flex flex-column align-items-start">
+        <img src="assets/Images/logo.png" alt="logo" width="75px" class="mb-2">
+
+        <div class="d-flex align-items-center gap-3">
+            <button mat-icon-button>
+                <mat-icon style="color: rgba(143, 152, 160, 1);">arrow_back</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon style="color: rgba(143, 152, 160, 1);">arrow_forward</mat-icon>
+            </button>
+
+            <a routerLink="/home-admin" routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{ exact: true }">ข้อมูลเกมทั้งหมด</a>
+            <a routerLink="/transaction" routerLinkActive="active-link">ประวัติทำธุระกรรมผู้ใช้</a>
+            <a routerLink="/promo" routerLinkActive="active-link">สร้างโค้ดส่วนลด</a>
+        </div>
+    </div>
+
+    <div class="d-flex align-items-center gap-2 me-4">
+        <button mat-button [matMenuTriggerFor]="userMenu"
+            style="background-color: rgb(41, 44, 49); border-radius: 5px;">
+            <img [src]="admin?.profile_image || 'assets/Images/user.png'" alt="avatar" width="40" height="32"
+                style="border-radius: 5px; margin-right: 8px;">
+            <span style="color: #1e88e5; margin-right: 8px;">{{admin?.username}}</span>
+            <mat-icon style="color: #1e88e5;">keyboard_arrow_down</mat-icon>
+        </button>
+    </div>
+
+    <mat-menu #userMenu="matMenu">
+        <button mat-menu-item>
+            <span routerLink="/profile-admin">ดูโปรไฟล์ของฉัน</span>
+        </button>
+        <hr>
+        <button mat-menu-item>
+            <span (click)="logout()">ออกจากบัญชี</span>
+        </button>
+    </mat-menu>
+</mat-toolbar>

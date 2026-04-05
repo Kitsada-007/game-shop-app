@@ -1,0 +1,36 @@
+<app-header-admin></app-header-admin>
+
+<div class="text-light container">
+  <div class="mb-3 text-center mt-5">
+    จำนวนผู้ใช้งานเว็บไซต์: <strong>{{ users?.length || 0 }} คน</strong>
+  </div>
+
+  <div *ngIf="users?.length; else loading">
+    <div *ngFor="let user of users" class="row bg-dark p-3 rounded mb-3">
+      <!-- ฝั่งซ้าย -->
+      <div class="col-md-6 border-end">
+        <div class="d-flex align-items-center mb-2">
+          <div class="me-3">
+            <img [src]="user.profile_image || 'https://via.placeholder.com/50'" class="rounded-circle" width="50"
+              height="50" alt="User Image" />
+          </div>
+          <div>
+            <div><strong>User:</strong> {{ user.username }}</div>
+            <div><strong>Email:</strong> {{ user.email }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ฝั่งขวา -->
+      <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <a [routerLink]="['/historys/', user.id]" class="btn btn-primary">
+          ประวัติทำธุรกรรมผู้ใช้
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <p class="text-center mt-5">กำลังโหลดข้อมูล...</p>
+  </ng-template>
+</div>
