@@ -21,7 +21,9 @@ The project consists of:
 - TypeScript
 - MySQL
 - Docker
+# Project Objective
 
-## Project Objective
+The objective of this project is to apply the knowledge and concepts learned in the course to develop a full-stack mini project.
 
-The objective of this project is to apply advanced web development concepts in building a full-stack web application, including frontend development, backend API design, database integration, and containerized deployment.
+**Thai:**  
+โครงงานนี้มีวัตถุประสงค์เพื่อประยุกต์ใช้ความรู้และเนื้อหาที่ได้เรียนในรายวิชา มาพัฒนาเป็นระบบเว็บแบบ Full-Stack ซึ่งประกอบด้วย Frontend, Backend, Database และการใช้งาน Docker
